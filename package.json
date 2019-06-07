@@ -1,0 +1,17 @@
+{
+    "name": "jest-email-reporter",
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "repository": "git@github.com:tglink/jest-email-reporter.git",
+    "author": "Anton Karmanov <anton@karmanov.ws>",
+    "license": "MIT",
+    "devDependencies": {},
+    "dependencies": {
+        "sendmail": "^1.4.1",
+        "strip-ansi": "^5.2.0"
+    },
+    "files": [
+        "src",
+        "yarn.lock"
+    ]
+}
