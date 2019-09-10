@@ -21,7 +21,7 @@ You must configure the jest config. Do not forget `from` and `to` e-mail address
 {
     reporters: [
         "default",
-        ["@tglink/jest-email-reporter", {
+        ["jest-email-reporter", {
             from: 'from@example.com',
             to: 'to@example.com',
             subject: 'Optional subject', // optional
