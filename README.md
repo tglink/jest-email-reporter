@@ -1,6 +1,6 @@
 <div align="center">
   <img height="200"
-    src="">
+    src="./src/logo.jpg">
   <h1>jest-email-reporter</h1>
   <p>See jest test errors on e-mail</p>
 </div>
