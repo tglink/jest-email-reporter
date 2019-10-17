@@ -25,6 +25,7 @@ You must configure the jest config. Do not forget `from` and `to` e-mail address
             from: 'from@example.com',
             to: 'to@example.com',
             subject: 'Optional subject', // optional
+            reportIfSuccess: true, // optional, default is false; it send e-mail message if tests were successful
         }]
     ]
 }

@@ -17,11 +17,13 @@ class DocumentTestHooksReporter {
             throw new Error('\nPlease set a to-field for jest-email-reporter in jest.config.js')
         }
 
-        this._options = options;
+        this._emailOptions = {
+            from: options.from,
+            to: options.to,
+            subject: options.subject || 'Test results',
+        };
 
-        if (!options.subject) {
-            this._options = this._options || 'Test results';
-        }
+        this._reportIfSuccess = options.reportIfSuccess || false;
     }
 
     /**
@@ -64,15 +66,22 @@ class DocumentTestHooksReporter {
             return acc;
         }, []);
 
+        function errorSendMail(err, reply) {
+            console.log(err && err.stack)
+            console.dir(reply)
+        }
+
         // send messages by e-mail
         if (failureMessages.length) {
             sendmail({
                 html: `<pre>${failureMessages.join('<br /><br />')}</pre>`,
-                ...this._options,
-            }, function (err, reply) {
-                console.log(err && err.stack)
-                console.dir(reply)
-            })
+                ...this._emailOptions,
+            }, errorSendMail)
+        } else if (this._reportIfSuccess) {
+            sendmail({
+                html: `<pre>Tests is success</pre>`,
+                ...this._emailOptions,
+            }, errorSendMail)
         }
 
     }
