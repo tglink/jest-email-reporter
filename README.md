@@ -18,7 +18,8 @@ yarn add -D jest-email-reporter
 You must configure the jest config. Do not forget `from` and `to` e-mail addresses.
 
 ```javascript
-{
+module.exports = {
+    ...
     reporters: [
         "default",
         ["jest-email-reporter", {
@@ -27,7 +28,8 @@ You must configure the jest config. Do not forget `from` and `to` e-mail address
             subject: 'Optional subject', // optional
             reportIfSuccess: true, // optional, default is false; it send e-mail message if tests were successful
         }]
-    ]
+    ],
+    ...
 }
 ```
 
